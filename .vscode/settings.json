@@ -1,0 +1,4 @@
+{
+    "cody.experimental.chatPredictions": true,
+    "cody.chat.preInstruction": "explain in detail"
+}
