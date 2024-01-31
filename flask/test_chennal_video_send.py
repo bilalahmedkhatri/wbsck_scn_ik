@@ -40,8 +40,8 @@ async def send_images(websocket):
                     if not screenshot:
                         break
 
-                    print('data type : ', screenshot.__str__())
-                    # img_bytes = screenshot.encode('ascii')
+                    print('data type : ', screenshot)
+                    img_bytes = base64.b64decode(str(screenshot))
 
                     # # Convert the screenshot to a numpy array, then to bytes
                     # img_array = np.array(screenshot)
@@ -51,7 +51,7 @@ async def send_images(websocket):
                     # array_to_bytes = buffer.tobytes()
 
                     # Send the image data to the server
-                    await websocket.send(screenshot)
+                    await websocket.send(img_bytes)
                     # await websocket.send("tets")
                     await asyncio.sleep(0.08)
 

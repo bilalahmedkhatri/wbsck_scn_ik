@@ -4,6 +4,7 @@ import numpy
 import cv2
 import socket
 import numpy as np
+import base64
 
 
 async def build_video():
@@ -33,7 +34,8 @@ async def server(websocket, path):
             async for message in websocket:
 
                 # Convert the screenshot to a numpy array, then to bytes
-                img_array = np.array(message)
+                msg = message.decode('ascii')
+                img_array = np.array(msg)
                 frame = cv2.cvtColor(img_array, cv2.COLOR_BGRA2BGR)
                 # _, buffer = cv2.imencode(
                 #     '.jpg', frame, image_encode_compress)
