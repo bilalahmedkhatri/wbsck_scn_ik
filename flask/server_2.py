@@ -34,19 +34,19 @@ async def server(websocket, path):
             async for message in websocket:
 
                 # Convert the screenshot to a numpy array, then to bytes
-                msg = message.decode('ascii')
-                img_array = np.array(msg)
-                frame = cv2.cvtColor(img_array, cv2.COLOR_BGRA2BGR)
+                # img_array = np.array(msg)
+                # frame = cv2.cvtColor(img_array, cv2.COLOR_BGRA2BGR)
                 # _, buffer = cv2.imencode(
                 #     '.jpg', frame, image_encode_compress)
                 # array_to_bytes = buffer.tobytes()
 
                 # bytes_to_array = numpy.frombuffer(message, numpy.uint8)
-                to_image = cv2.imdecode(frame, cv2.IMREAD_COLOR)
+                # to_image = cv2.imdecode(frame, cv2.IMREAD_COLOR)
 
                 # testing images in video frames
-                cv2.imshow("screenshot_video", to_image)
-                cv2.waitKey(1)
+                # cv2.imshow("screenshot_video", to_image)
+                # cv2.waitKey(1)
+                print(f"received: {message}")
                 await websocket.send("received...")
             # out.write(bytes_to_array)
 
