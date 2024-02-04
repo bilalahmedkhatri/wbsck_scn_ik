@@ -40,7 +40,12 @@ async def send_images(websocket):
 
                     # print(type(screenshot.raw))
                     # pickle dekna hai.
-                    await websocket.send(str(screenshot))
+                    # nn = np.array(screenshot.raw)
+                    # nnp = np.array(screenshot)
+                    # print(nn.shape)
+                    # print(nnp.shape)
+                    bytes_data = bytes(str(screenshot), encoding='utf-8')
+                    await websocket.send(screenshot)
 
                     s = await websocket.recv()
                     print("ssssss", s)

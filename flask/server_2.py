@@ -46,6 +46,7 @@ async def server(websocket, path):
                 # testing images in video frames
                 # cv2.imshow("screenshot_video", to_image)
                 # cv2.waitKey(1)
+                d_bytes = message.decode('utf-8')
                 print(f"received: {message}")
                 await websocket.send("received...")
             # out.write(bytes_to_array)
