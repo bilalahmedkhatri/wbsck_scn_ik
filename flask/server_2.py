@@ -46,7 +46,8 @@ async def server(websocket, path):
                 # testing images in video frames
                 # cv2.imshow("screenshot_video", to_image)
                 # cv2.waitKey(1)
-                d_bytes = message.decode('utf-8')
+                # d_bytes = message.decode('utf-8')
+                # ds = base64.dncodebytes(message)
                 print(f"received: {message}")
                 await websocket.send("received...")
             # out.write(bytes_to_array)
@@ -60,7 +61,7 @@ async def server(websocket, path):
 # Start the WebSocket server on localhost, port 8080
 if __name__ == "__main__":
     start_server = websockets.serve(
-        server, '', 8005, ping_interval=None)
+        server, '', 8005, ping_interval=None, max_size=1000000)
     print("WebSocket server is running on ws://46.138.93.58:443")
 
     asyncio.get_event_loop().run_until_complete(start_server)

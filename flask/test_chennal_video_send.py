@@ -44,11 +44,9 @@ async def send_images(websocket):
                     # nnp = np.array(screenshot)
                     # print(nn.shape)
                     # print(nnp.shape)
-                    bytes_data = bytes(str(screenshot), encoding='utf-8')
-                    await websocket.send(screenshot)
 
-                    s = await websocket.recv()
-                    print("ssssss", s)
+                    await websocket.send(screenshot.raw)
+
                     await asyncio.sleep(0.08)
 
         except websockets.exceptions.ConnectionClosed as e:
@@ -60,7 +58,7 @@ async def main():
     # uri = f"ws://localhost:8000/ws/video/"
     # uri = f"wss://192.168.1.85:8088" # workin fine with IP address
 
-    async with websockets.connect(uri, ping_interval=None) as websocket:
+    async with websockets.connect(uri, ping_interval=None, compression='deflate') as websocket:
         print(f"Connected to {uri}, {get_system_ip()}")
 
         # Send images continuously to the server

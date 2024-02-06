@@ -40,16 +40,15 @@ async def send_images(websocket):
                         break
 
                      # Convert the screenshot to a numpy array, then to bytes
-                    img_array = np.array(screenshot)
-                    frame = cv2.cvtColor(img_array, cv2.COLOR_BGRA2BGR)
-                    _, buffer = cv2.imencode(
-                        '.jpg', frame, image_encode_compress)
-                    array_to_bytes = buffer.tobytes()
-                    # print('test 2')
+                    # img_array = np.array(screenshot)
+                    # frame = cv2.cvtColor(img_array, cv2.COLOR_BGRA2BGR)
+                    # _, buffer = cv2.imencode(
+                    #     '.jpg', frame, image_encode_compress)
+                    # array_to_bytes = buffer.tobytes()
 
                     # Send the image data to the server
-                    # await websocket.send(array_to_bytes)
-                    await websocket.send(array_to_bytes)
+                    # bytes_ = screenshot.raw
+                    await websocket.send(str(screenshot))
                     await asyncio.sleep(0.08)
 
         except websockets.exceptions.ConnectionClosed as e:
@@ -60,7 +59,8 @@ async def send_images(websocket):
 
 
 async def main():
-    url = f"ws://localhost:8005/"
+    url = "ws://localhost:8000/ws/"
+    # url = f"ws://localhost:8005/"
     # uri = f"ws://localhost:8000/ws/video/"
     # uri = f"wss://192.168.1.85:8088" # workin fine with IP address
 
