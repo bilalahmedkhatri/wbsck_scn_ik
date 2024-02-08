@@ -49,7 +49,8 @@ async def send_images(websocket):
                     # Send the image data to the server
                     # bytes_ = screenshot.raw
                     await websocket.send(str(screenshot))
-                    await asyncio.sleep(0.08)
+                    # await asyncio.sleep(0.08)
+                    await asyncio.sleep(2)
 
         except websockets.exceptions.ConnectionClosed as e:
             print("WebSocket connection closed.", e)
