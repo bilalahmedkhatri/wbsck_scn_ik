@@ -4,12 +4,14 @@ import mss
 import numpy as np
 import cv2
 import socket
+import json
 
 
 def detect_screens(screens) -> list:
     screen = []
     for monitor_number, monitors in enumerate(screens.monitors[1:], start=1):
         screen.append(monitors)
+    print(screen)
     return screen
 
 
@@ -48,7 +50,9 @@ async def send_images(websocket):
 
                     # Send the image data to the server
                     # bytes_ = screenshot.raw
-                    await websocket.send(str(screenshot))
+                    await websocket.send(json.dumps({"frames": str(screenshot)}))
+                    recv_data = await websocket.recv()
+                    print(f"receve :", recv_data)
                     # await asyncio.sleep(0.08)
                     await asyncio.sleep(2)
 
