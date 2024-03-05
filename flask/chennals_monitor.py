@@ -1,20 +1,26 @@
 from websockets import connect, exceptions
 import json
 import asyncio
+import uuid
+
+
+def combined_image_data(screenshot):
+    scn = screenshot.monitors(0)
+    return u_id
+
+
+def user_ID():
+    return uuid.uuid4()
 
 
 async def send_data():
-
-    url = "ws://localhost:8000/ws/"
+    url = "ws://localhost:8081/ws/"
     async with connect(url) as websocket:
-        print("websockets connected")
         try:
             while True:
-                d = "received data from websockets"
-                await websocket.send(d)
-                rec = await websocket.recv()
+                num_added = f"Unique Numbers {user_ID()}"
+                await websocket.send(num_added)
                 await asyncio.sleep(1)
-                print(f"receve :", rec)
 
         except exceptions.ConnectionClosed as e:
             print("Connection closed : ", e)

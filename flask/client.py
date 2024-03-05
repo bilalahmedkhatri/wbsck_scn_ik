@@ -33,7 +33,6 @@ async def send_images(websocket):
         try:
             while True:
                 for scn in detect_screen:
-
                     # Capture the screen part
                     screenshot = sct.grab(scn)
                     if not screenshot:
