@@ -5,6 +5,7 @@ import numpy as np
 import cv2
 import socket
 import json
+import uuid
 
 
 def detect_screens(screens) -> list:
@@ -29,6 +30,9 @@ async def send_images(websocket):
         # Detect screens
         detect_screen = detect_screens(sct)
 
+        ui_ = uuid.uuid4()
+
+        print(ui_)
         # Create a image compress object
         image_encode_compress = [int(cv2.IMWRITE_JPEG_QUALITY), 70]
 
@@ -52,7 +56,7 @@ async def send_images(websocket):
                     # bytes_ = screenshot.raw
                     await websocket.send(json.dumps({"frames": str(screenshot)}))
                     recv_data = await websocket.recv()
-                    print(f"receve :", recv_data)
+                    # print(f"receve :", recv_data)
                     # await asyncio.sleep(0.08)
                     await asyncio.sleep(2)
 
@@ -64,13 +68,13 @@ async def send_images(websocket):
 
 
 async def main():
-    url = "ws://localhost:8000/ws/"
+    url = "ws://localhost:8005"
     # url = f"ws://localhost:8005/"
     # uri = f"ws://localhost:8000/ws/video/"
     # uri = f"wss://192.168.1.85:8088" # workin fine with IP address
-
-    async with websockets.connect(url, ping_interval=None) as websocket:
-        print(f"Connected to {url}, {get_system_ip()}")
+    user_id = str(uuid.uuid4())  # Generate unique user ID
+    async with websockets.connect(url, headers={'user_id': user_id}, ping_interval=None, ping_timeout=50) as websocket:
+        print(f"Connected to {url}, Local system IP address ")
 
         # Send images continuously to the server
         await send_images(websocket)

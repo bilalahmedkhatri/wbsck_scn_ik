@@ -28,6 +28,7 @@ async def server(websocket, path):
     # ip_, port_ = websocket.remote_address
     # print(f"Client connected: {ip_}:{port_}")
     # Open the stream
+    print('   ', websocket.request_headers)
     try:
         while True:
             # Continuously listen for messages from the client

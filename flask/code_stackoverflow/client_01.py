@@ -9,7 +9,7 @@ class Manager:
     filename = None
     filesize = 0
     secret = None
-    FileManager = File.Manager()
+    # FileManager = File.Manager()
 
     def __init__(self, SERVER_URL, filename, filesize, secret):
         self.SERVER_URL = SERVER_URL
