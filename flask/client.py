@@ -6,6 +6,8 @@ import cv2
 import socket
 import json
 import uuid
+import zlib
+import lzma
 
 
 def detect_screens(screens) -> list:
@@ -32,7 +34,6 @@ async def send_images(websocket):
 
         ui_ = uuid.uuid4()
 
-        print(ui_)
         # Create a image compress object
         image_encode_compress = [int(cv2.IMWRITE_JPEG_QUALITY), 70]
 
@@ -53,10 +54,17 @@ async def send_images(websocket):
                     # array_to_bytes = buffer.tobytes()
 
                     # Send the image data to the server
-                    # bytes_ = screenshot.raw
-                    await websocket.send(json.dumps({"frames": str(screenshot)}))
+                    compressed_lmza = lzma.compress(screenshot.raw)
+                    data = json.dumps({
+                        'image': compressed_lmza.decode("latin-1"),
+                        'status': True,
+                        'uid': str(get_system_ip())
+                    })
+                    x = len(compressed_lmza.decode("latin-1"))
+                    print('lenl', x)
+                    await websocket.send(data)
                     recv_data = await websocket.recv()
-                    # print(f"receve :", recv_data)
+                    print(f"receve :", recv_data)
                     # await asyncio.sleep(0.08)
                     await asyncio.sleep(2)
 
@@ -73,7 +81,8 @@ async def main():
     # uri = f"ws://localhost:8000/ws/video/"
     # uri = f"wss://192.168.1.85:8088" # workin fine with IP address
     user_id = str(uuid.uuid4())  # Generate unique user ID
-    async with websockets.connect(url, headers={'user_id': user_id}, ping_interval=None, ping_timeout=50) as websocket:
+    # async with websockets.connect(url, headers={'user_id': user_id}, ping_interval=None, ping_timeout=50) as websocket:
+    async with websockets.connect(url, ping_interval=None, ping_timeout=50) as websocket:
         print(f"Connected to {url}, Local system IP address ")
 
         # Send images continuously to the server
