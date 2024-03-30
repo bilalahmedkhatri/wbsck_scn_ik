@@ -1,4 +1,4 @@
-**Capture Your Screen and Weave It into a Video with Python Magic!**
+**_Capture Your Screen and Weave It into a Video with Python Magic!_**
 
 This Python project provides a streamlined solution for generating video recordings from your screen activity. It leverages powerful libraries like `python-mss` for efficient screen capture and OpenCV (cv2) for image and video processing.
 
@@ -19,34 +19,30 @@ This Python project provides a streamlined solution for generating video recordi
    pip install python-mss opencv-python websockets
    ```
 
-**Usage:**
-
-1. **Basic Usage:**
-<<<<<<< HEAD
+3. **Basic Usage:**
 
 =======
->>>>>>> db8f5de99debad23e975c1cfb5fc7402658078ae
-   - Modify the capture logic within the `server` function (look for comments) to determine how screenshots are captured (e.g., user interaction, timed intervals). Refer to the `python-mss` documentation for advanced capture options: [https://github.com/topics/screenshot?l=python&o=asc&s=stars](https://github.com/topics/screenshot?l=python&o=asc&s=stars)
-   - Run the script using the following command in your terminal:
 
-     ```bash
-     python server_2.py
-     ```
-<<<<<<< HEAD
+- Modify the capture logic within the `server` function (look for comments) to determine how screenshots are captured (e.g., user interaction, timed intervals). Refer to the `python-mss` documentation for advanced capture options: [https://github.com/topics/screenshot?l=python&o=asc&s=stars](https://github.com/topics/screenshot?l=python&o=asc&s=stars)
+- Run the script using the following command in your terminal:
+
+       ```bash
+       python server_2.py
+       ```
+
+  <<<<<<< HEAD
 
 =======
->>>>>>> db8f5de99debad23e975c1cfb5fc7402658078ae
+
      ```bash
      python client.py
      ```
 
-   The script will capture screenshots based on your defined logic and build a video named or stream.
-<<<<<<< HEAD
+The script will capture screenshots based on your defined logic and build a video named or stream.
 
 =======
->>>>>>> db8f5de99debad23e975c1cfb5fc7402658078ae
-2. **Advanced Usage (WebSockets):**
-   - For an interactive screencast experience, consult the project's source code and documentation (if available) to learn how to implement real-time capture control using websockets.
+
+- For an interactive screencast experience, consult the project's source code and documentation (if available) to learn how to implement real-time capture control using websockets.
 
 **Potential Applications:**
 
@@ -55,10 +51,6 @@ This Python project provides a streamlined solution for generating video recordi
 - Capturing game sessions or software behavior
 - Generating time-lapse or stop-motion videos
 
-<<<<<<< HEAD
-=======
-
->>>>>>> db8f5de99debad23e975c1cfb5fc7402658078ae
 **Useful Links for Further Exploration:**
 
 - **`python-mss` Documentation:** [https://python-mss.readthedocs.io/](https://python-mss.readthedocs.io/)
@@ -74,8 +66,4 @@ This project presents a foundation for building engaging videos from your screen
 
 This project embraces the MIT License (refer to the LICENSE file for details), so you're welcome to contribute, modify, and extend it to match your specific requirements. Together, we can make it even more remarkable!
 
-<<<<<<< HEAD
-=======
-
->>>>>>> db8f5de99debad23e975c1cfb5fc7402658078ae
 Certainly! Here's a refined README file with a more professional tone and structure:
