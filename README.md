@@ -1,4 +1,4 @@
-** Capture Your Screen and Weave It into a Video with Python Magic!**
+**Capture Your Screen and Weave It into a Video with Python Magic!**
 
 This Python project provides a streamlined solution for generating video recordings from your screen activity. It leverages powerful libraries like `python-mss` for efficient screen capture and OpenCV (cv2) for image and video processing.
 
