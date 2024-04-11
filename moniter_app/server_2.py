@@ -6,6 +6,7 @@ import numpy as np
 from json import loads
 from lzma import decompress
 from open_port import find_process_by_port, close_port
+import time
 
 
 PORT_NUMBER = 8006
@@ -46,10 +47,23 @@ def check_port(port):
 
 async def server(websocket, path):
     monitor_tools = ServerMonitorTools(websocket=websocket)
+    # url = path.split("/")[0]
+    # connection_method = path.split("/")[1]  # "ws" for websocket connection
+    web_os_user_name = f"/{path.split('/')[1]}/web"
+    client_os_user_name = f"/{path.split('/')[1]}/client"
+
     try:
         while True:
-            value = await monitor_tools.build_video()
-            await websocket.send("received...")
+            if path == client_os_user_name:
+                value = await monitor_tools.build_video()
+                await websocket.send('recieved on server')
+                time.sleep(0.6)
+                print(path)
+            if path == web_os_user_name:
+                await websocket.send("received...")
+                time.sleep(0.9)
+                print(path)
+            continue
     except websockets.exceptions.ConnectionClosed:
         print(f"Client disconnected: {websocket.remote_address}")
 

@@ -44,12 +44,10 @@ async def send_images(websocket):
 
                     # Capture the screen part
                     screenshot = sct.grab(scn)
-                    # sct.close()
-                    print(sct)
                     if not screenshot:
                         break
-
-                    print(screenshot.size)
+                    encoded = screenshot.raw
+                    # print(encoded.startswith("\xEF\xBB\xBF"))
 
                     # Send the image data to the server
                     compressed_lmza = lzma.compress(screenshot.rgb)
@@ -59,7 +57,10 @@ async def send_images(websocket):
                         'status': True,
                         'size': screenshot.size
                     })
-                    await websocket.send(data)
+                    send_data = await websocket.send(data)
+                    # if send_data:
+                    #     print('send')
+                    # sct.close()
                     recv_data = await websocket.recv()
                     print(f"receve :", recv_data)
                     await asyncio.sleep(0.7)
@@ -69,7 +70,8 @@ async def send_images(websocket):
 
 
 async def main():
-    url = "ws://localhost:8006"
+    # url = "ws://localhost:8006"
+    url = "ws://localhost:8006/ws/aashaaz_OS10"
     # uri = f"wss://192.168.1.85:8088" # workin fine with IP address
     async with websockets.connect(url, ping_interval=None, ping_timeout=50) as websocket:
         print(f"Connected to {url}, Local system IP address ")
