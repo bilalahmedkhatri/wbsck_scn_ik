@@ -43,6 +43,10 @@ def check_port(port):
     if process_port:
         close_port(port)
         process_port.terminate()
+        print("port closed :", process_port)
+
+
+connection_clients = set()
 
 
 async def server(websocket, path):
@@ -51,24 +55,25 @@ async def server(websocket, path):
     # connection_method = path.split("/")[1]  # "ws" for websocket connection
     web_os_user_name = f"/{path.split('/')[1]}/web"
     client_os_user_name = f"/{path.split('/')[1]}/client"
-
+    connection_clients.add(websocket)
     try:
         while True:
-            if path == client_os_user_name:
-                value = await monitor_tools.build_video()
-                await websocket.send('recieved on server')
-                time.sleep(0.6)
-                print(path)
-            if path == web_os_user_name:
-                await websocket.send("received...")
-                time.sleep(0.9)
-                print(path)
-            continue
-    except websockets.exceptions.ConnectionClosed:
-        print(f"Client disconnected: {websocket.remote_address}")
+            client_data = await websocket.recv()
+            print(client_data)
+            # for result in client_data:
+            #     print(result)
+            # for client in connection_clients:
+            #     print("clients : ", client.server)
+            #     if client != websocket:
+            #         await websocket.send('message from server')
 
+    except websockets.exceptions.ConnectionClosed as e:
+        print(f"Client disconnected: {websocket.remote_address}, {e}")
 
-# Start the WebSocket server on localhost, port 8080
+    finally:
+        connection_clients.remove(websocket)
+
+        # Start the WebSocket server on localhost, port 8080
 if __name__ == "__main__":
     port = PORT_NUMBER
     check_port(port)

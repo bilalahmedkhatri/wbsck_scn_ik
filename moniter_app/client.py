@@ -1,12 +1,14 @@
+from time import time
+from sys import platform
+from os import environ, getlogin
+import platform
 import asyncio
 import websockets
 import mss
 import socket
 import json
 import lzma
-from os import environ
-from sys import platform
-from time import time
+import secrets
 
 
 class ClientMonitorTools:
@@ -33,6 +35,27 @@ def detect_screens(screens) -> list:
     return screen
 
 
+def os_name() -> str:
+    try:
+        return platform.system()
+    except:
+        return False
+
+
+def user_name() -> str:
+    try:
+        return getlogin()
+    except:
+        return False
+
+
+def secure_token():
+    try:
+        return secrets.token_urlsafe()
+    except:
+        return False
+
+
 async def send_images(websocket):
 
     with mss.mss() as sct:
@@ -47,7 +70,6 @@ async def send_images(websocket):
                     if not screenshot:
                         break
                     encoded = screenshot.raw
-                    # print(encoded.startswith("\xEF\xBB\xBF"))
 
                     # Send the image data to the server
                     compressed_lmza = lzma.compress(screenshot.rgb)
@@ -55,11 +77,9 @@ async def send_images(websocket):
                     data = json.dumps({
                         'image': decode_image,
                         'status': True,
-                        'size': screenshot.size
+                        'size': screenshot.size,
                     })
-                    send_data = await websocket.send(data)
-                    # if send_data:
-                    #     print('send')
+                    await websocket.send(data)
                     # sct.close()
                     recv_data = await websocket.recv()
                     print(f"receve :", recv_data)
@@ -71,7 +91,9 @@ async def send_images(websocket):
 
 async def main():
     # url = "ws://localhost:8006"
-    url = "ws://localhost:8006/ws/aashaaz_OS10"
+    USER_NAME = f"{user_name()}_{os_name()}_{secure_token()}"
+    print('user name', USER_NAME)
+    url = f"ws://localhost:8006/ws/{USER_NAME}"
     # uri = f"wss://192.168.1.85:8088" # workin fine with IP address
     async with websockets.connect(url, ping_interval=None, ping_timeout=50) as websocket:
         print(f"Connected to {url}, Local system IP address ")
