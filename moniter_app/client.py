@@ -1,62 +1,23 @@
-from time import time
-from sys import platform
-from os import environ, getlogin
-import platform
 import asyncio
 import websockets
 import mss
-import socket
 import json
 import lzma
-import secrets
-
-
-class ClientMonitorTools:
-
-    def get_start_time(self):
-        return time()
-
-    def get_system_ip(self):
-        sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-        ip = sock.connect(("8.8.8.8", 80))
-        sock.close()
-        return ip
-
-    def get_username(self) -> None:
-        self.USER_NAME = environ["USERNAME"] if platform.startswith(
-            'win') else environ["USER"]
+from ws_tools import ClientMonitorTools
 
 
 def detect_screens(screens) -> list:
     screen = []
     for monitor_number, monitors in enumerate(screens.monitors[1:], start=1):
         screen.append(monitors)
-    print(screen)
+    # print(screen) format like this : [{'left': 0, 'top': 0, 'width': 1280, 'height': 720}]
     return screen
 
 
-def os_name() -> str:
-    try:
-        return platform.system()
-    except:
-        return False
-
-
-def user_name() -> str:
-    try:
-        return getlogin()
-    except:
-        return False
-
-
-def secure_token():
-    try:
-        return secrets.token_urlsafe()
-    except:
-        return False
-
-
 async def send_images(websocket):
+
+    tools = ClientMonitorTools()
+    print(tools.get_start_time())
 
     with mss.mss() as sct:
         # Detect screens
@@ -65,11 +26,11 @@ async def send_images(websocket):
             while True:
                 for scn in detect_screen:
 
+                    # manage length of screens (remaining task)
                     # Capture the screen part
                     screenshot = sct.grab(scn)
                     if not screenshot:
                         break
-                    encoded = screenshot.raw
 
                     # Send the image data to the server
                     compressed_lmza = lzma.compress(screenshot.rgb)
@@ -80,7 +41,6 @@ async def send_images(websocket):
                         'size': screenshot.size,
                     })
                     await websocket.send(data)
-                    # sct.close()
                     recv_data = await websocket.recv()
                     print(f"receve :", recv_data)
                     await asyncio.sleep(0.7)
@@ -90,13 +50,12 @@ async def send_images(websocket):
 
 
 async def main():
-    # url = "ws://localhost:8006"
-    USER_NAME = f"{user_name()}_{os_name()}_{secure_token()}"
-    print('user name', USER_NAME)
+    tools = ClientMonitorTools()
+    USER_NAME = f"{tools.user_name()}_{tools.os_name()}_{tools.secure_token()}"
     url = f"ws://localhost:8006/ws/{USER_NAME}"
     # uri = f"wss://192.168.1.85:8088" # workin fine with IP address
     async with websockets.connect(url, ping_interval=None, ping_timeout=50) as websocket:
-        print(f"Connected to {url}, Local system IP address ")
+        print(f"Connected to {url}, user access token: {USER_NAME} ")
         await send_images(websocket)
 
 
