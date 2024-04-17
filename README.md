@@ -21,8 +21,6 @@ This Python project provides a streamlined solution for generating video recordi
 
 3. **Basic Usage:**
 
-=======
-
 - Modify the capture logic within the `server` function (look for comments) to determine how screenshots are captured (e.g., user interaction, timed intervals). Refer to the `python-mss` documentation for advanced capture options: [https://github.com/topics/screenshot?l=python&o=asc&s=stars](https://github.com/topics/screenshot?l=python&o=asc&s=stars)
 - Run the script using the following command in your terminal:
 
@@ -30,17 +28,11 @@ This Python project provides a streamlined solution for generating video recordi
        python server_2.py
        ```
 
-  <<<<<<< HEAD
-
-=======
-
-     ```bash
-     python client.py
-     ```
+  ```bash
+  python client.py
+  ```
 
 The script will capture screenshots based on your defined logic and build a video named or stream.
-
-=======
 
 - For an interactive screencast experience, consult the project's source code and documentation (if available) to learn how to implement real-time capture control using websockets.
 

@@ -1,6 +1,6 @@
 import datetime
 import time
-import socket
+import json
 from psutil import boot_time
 from secrets import token_urlsafe
 from time import time
@@ -11,42 +11,41 @@ from platform import system
 
 class ClientMonitorTools:
 
-    def get_start_time(self):
-        return time()
+    def __init__(self, *args, **kwargs):
+        self.START_TIME = time()
+        self.USER_NAME = None
 
-    def get_system_ip(self):
-        sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-        ip = sock.connect(("8.8.8.8", 80))
-        sock.close()
-        return ip
-
-    def get_username(self) -> None:
-        self.USER_NAME = environ["USERNAME"] if platform.startswith(
+    def username(self) -> str:  # done
+        return environ["USERNAME"] if platform.startswith(
             'win') else environ["USER"]
 
-    def os_name(self) -> str:
+    def os_name(self) -> str:  # done
         try:
             return system()
         except:
             return False
 
-    def user_name(self) -> str:
-        try:
-            return getlogin()
-        except:
-            return False
-
     def secure_token(self):
         try:
-            return token_urlsafe()
+            securetoken = token_urlsafe()
+            return securetoken
         except:
             return False
 
-    def get_sys_start(self):
+    def get_sys_started_start(self):
         try:
             start_time = boot_time()
             conv_date_format = datetime.datetime.fromtimestamp(
                 start_time).strftime("%d/%m/%Y, %H:%M:%S")
-            return conv_date_format
+            print(type(start_time), type(conv_date_format),
+                  start_time, conv_date_format)
+            return (start_time, conv_date_format)
         except:
             return False
+
+    def extra_header_data(self) -> dict:
+        return {
+            'x_user_name': self.username(),
+            'x_os': self.os_name(),
+            'x_system_started_time': self.get_sys_started_start()
+        }
