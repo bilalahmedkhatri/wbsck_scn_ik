@@ -56,11 +56,10 @@ async def server(websocket, path):
     USERS_CONNECTED.add((websocket.path, websocket.origins))
     try:
         while True:
-            client_data = await websocket.recv()
-            data = (client_os_user_name, client_data[2])
+
             for client in USERS_CONNECTED:
                 if client != path:
-                    await websocket.send(data)
+                    await websocket.send(client_os_user_name)
 
     except websockets.exceptions.ConnectionClosed as e:
         print(f"Client disconnected: {websocket.remote_address}, {e}")

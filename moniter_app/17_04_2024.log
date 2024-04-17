@@ -1,0 +1,55 @@
+2024-04-17 22:32:59,440 - INFO - Client connected to ws://localhost:8006/ws/xAfb1MiSe3_X3tUObDjhLXmeSVBiGBKTQGSrcAUPOnQ
+2024-04-17 22:32:59,462 - INFO - image captured: [{'left': 0, 'top': 0, 'width': 1280, 'height': 720}]
+2024-04-17 22:38:38,993 - INFO - Client connected to ws://localhost:8006/ws/yXsJs26PEo4kPDpk9eEF-bFSpFJfOpXtIKCgaWNxhO8
+2024-04-17 22:38:39,014 - INFO - image captured: [{'left': 0, 'top': 0, 'width': 1280, 'height': 720}]
+2024-04-17 22:39:41,632 - INFO - Client connected to ws://localhost:8006/ws/BDR9rWq-63g03jp-3OJi9tvvSFQF25Cw209LKCX0ugw
+2024-04-17 22:39:41,652 - INFO - image captured: [{'left': 0, 'top': 0, 'width': 1280, 'height': 720}]
+2024-04-17 22:40:00,656 - INFO - Client connected to ws://localhost:8006/ws/PUmWEkrnfKNlGIXY2XCgjmiPhpKR-MRPWmf3cdioHwE
+2024-04-17 22:40:00,674 - INFO - image captured: [{'left': 0, 'top': 0, 'width': 1280, 'height': 720}]
+2024-04-17 22:40:00,674 - INFO - dected screens [{'left': 0, 'top': 0, 'width': 1280, 'height': 720}]
+2024-04-17 22:44:16,210 - INFO - Client connected to ws://localhost:8006/ws/5TM9ACC34xJh2lwlNZHr9MlbKiUy2ML9hRLLJcoz6R4
+2024-04-17 22:44:16,227 - INFO - dected screens [{'left': 0, 'top': 0, 'width': 1280, 'height': 720}]
+2024-04-17 22:44:52,218 - INFO - Client connected to ws://localhost:8006/ws/QismMHgqQDIS0b9TVu0zMYkoBaoAFeP1nX3i2yYm-3w
+2024-04-17 22:44:52,238 - INFO - dected screens [{'left': 0, 'top': 0, 'width': 1280, 'height': 720}]
+2024-04-17 22:45:27,019 - INFO - Client connected to ws://localhost:8006/ws/plMub2_bJXS4ukgvflb3EHRf6JDIRkP8Rp2yArWIJ7A
+2024-04-17 22:45:27,039 - INFO - dected screens [{'left': 0, 'top': 0, 'width': 1280, 'height': 720}]
+2024-04-17 22:45:54,899 - INFO - Client connected to ws://localhost:8006/ws/9bMDBqd5tkGq-sIefsdYoAoEbyUe6LhBESsriSaeF_s
+2024-04-17 22:45:54,920 - INFO - dected screens [{'left': 0, 'top': 0, 'width': 1280, 'height': 720}]
+2024-04-17 22:53:42,375 - INFO - Client connected to ws://localhost:8006/ws/CyLogpVVTpX0mbl2rr4Nt6hNPALRnOoY9IvqrfGvvBY
+2024-04-17 22:53:42,394 - INFO - dected screens [{'left': 0, 'top': 0, 'width': 1280, 'height': 720}]
+2024-04-17 22:54:15,530 - INFO - Client connected to ws://localhost:8006/ws/bb3lQsva38Tb2RZDD7gm0zlO9H9IjkCJvFe9nN7zcws
+2024-04-17 22:54:15,553 - INFO - dected screens [{'left': 0, 'top': 0, 'width': 1280, 'height': 720}]
+2024-04-17 22:56:32,453 - INFO - Client connected to ws://localhost:8006/ws/MPi7-d3NvEsrUd_PZU8z2uzpuiIdsMX51w3eVjtOhh8
+2024-04-17 22:56:32,474 - INFO - dected screens [{'left': 0, 'top': 0, 'width': 1280, 'height': 720}]
+2024-04-17 22:57:41,756 - INFO - Client connected to ws://localhost:8006/ws/rHPP6Za4EYD3b6bxCtw-588Vt2moLO5UssxLTLk5VMA
+2024-04-17 22:57:41,777 - INFO - dected screens [{'left': 0, 'top': 0, 'width': 1280, 'height': 720}]
+2024-04-17 22:59:19,775 - INFO - Client connected to ws://localhost:8006/ws/70v7ZV42mCfPGrnnVimpYG6n4MCji2rKj8hVxDrn_nI
+2024-04-17 22:59:19,801 - INFO - dected screens [{'left': 0, 'top': 0, 'width': 1280, 'height': 720}]
+2024-04-17 22:59:41,723 - INFO - Client connected to ws://localhost:8006/ws/U4jp5PmxZRGrBC4ESSYQOGyYJJVJEu6aOVVS6SdP7n0
+2024-04-17 22:59:41,749 - INFO - dected screens [{'left': 0, 'top': 0, 'width': 1280, 'height': 720}]
+2024-04-17 22:59:58,366 - INFO - Client connected to ws://localhost:8006/ws/ZAB9NtB5joxVlE2HSgkWD6KIMyRrniPVR4AuYgA5AK4
+2024-04-17 22:59:58,387 - INFO - dected screens [{'left': 0, 'top': 0, 'width': 1280, 'height': 720}]
+2024-04-17 23:00:28,587 - INFO - Client connected to ws://localhost:8006/ws/gjbk6Hz7upA_HVrOrKO3lznhth0vcBxPsFZ48olI1xQ
+2024-04-17 23:00:28,608 - INFO - dected screens [{'left': 0, 'top': 0, 'width': 1280, 'height': 720}]
+2024-04-17 23:01:00,884 - INFO - Client connected to ws://localhost:8006/ws/vY8aNVEkyhA_J-IiMkTpYr2d8L3t7zMkv0zsWs1Hs-c
+2024-04-17 23:01:00,909 - INFO - dected screens [{'left': 0, 'top': 0, 'width': 1280, 'height': 720}]
+2024-04-17 23:03:00,032 - INFO - Client connected to ws://localhost:8006/ws/vqIj9ivoszVTQdcM4TJMpSEMqWmWIMbO9a6O5bEHNi8
+2024-04-17 23:03:00,069 - INFO - dected screens [{'left': 0, 'top': 0, 'width': 1280, 'height': 720}]
+2024-04-17 23:04:46,774 - INFO - Client connected to ws://localhost:8006/ws/wL4Hi6t7Z08mMsxQNWlXlXMtiTTv7_JfOH0MpJxdsCU
+2024-04-17 23:04:47,378 - INFO - dected screens [{'left': 0, 'top': 0, 'width': 1280, 'height': 720}]
+2024-04-17 23:05:09,581 - INFO - Client connected to ws://localhost:8006/ws/TLK1dbYsg5rJjuZeIEYLP9MkSiMrqEHswvWSQ_DM3Fs
+2024-04-17 23:05:09,607 - INFO - dected screens [{'left': 0, 'top': 0, 'width': 1280, 'height': 720}]
+2024-04-17 23:06:03,152 - INFO - Client connected to ws://localhost:8006/ws/f04byeaiphD9lWj1kI13d_IwmOuv8AQjZAUDhpWeArw
+2024-04-17 23:06:03,180 - INFO - dected screens [{'left': 0, 'top': 0, 'width': 1280, 'height': 720}]
+2024-04-17 23:06:33,111 - INFO - Client connected to ws://localhost:8006/ws/1_i3XHr1UAdSV4Y6qaaON1GEiMRyQobtp65a0_G0MQs
+2024-04-17 23:06:33,139 - INFO - dected screens [{'left': 0, 'top': 0, 'width': 1280, 'height': 720}]
+2024-04-17 23:07:06,458 - INFO - Client connected to ws://localhost:8006/ws/686fz93nw8NMv0QxgU8g-MltMwS8AEsdjWffizNmA9Y
+2024-04-17 23:07:06,488 - INFO - dected screens [{'left': 0, 'top': 0, 'width': 1280, 'height': 720}]
+2024-04-17 23:07:37,115 - INFO - Client connected to ws://localhost:8006/ws/Mnk7oPwNQDZGaMjpqEmkQB7KCYkFojlYmmQiKbDvBgI
+2024-04-17 23:07:37,139 - INFO - dected screens [{'left': 0, 'top': 0, 'width': 1280, 'height': 720}]
+2024-04-17 23:08:13,475 - INFO - Client connected to ws://localhost:8006/ws/LsqwS1h9KsqqW70WFsZyN8lprLQvYnfjMKvOYCSDoXw
+2024-04-17 23:08:13,501 - INFO - dected screens [{'left': 0, 'top': 0, 'width': 1280, 'height': 720}]
+2024-04-17 23:08:27,870 - INFO - Client connected to ws://localhost:8006/ws/QnqalYcYXVGznNMw3JmkA7WMzSB1QipGONJmEmkWolI
+2024-04-17 23:08:27,917 - INFO - dected screens [{'left': 0, 'top': 0, 'width': 1280, 'height': 720}]
+2024-04-17 23:09:02,548 - INFO - Client connected to ws://localhost:8006/ws/GlwIZbOKwRwyKPCY4tavpAPXH3HStk4IOQp0-76uchw
+2024-04-17 23:09:02,568 - INFO - dected screens [{'left': 0, 'top': 0, 'width': 1280, 'height': 720}]

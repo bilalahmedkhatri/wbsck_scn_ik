@@ -9,7 +9,7 @@ import datetime
 
 
 log_datetime = datetime.datetime.now()
-dt_replace = log_datetime.ctime().replace(" ", "_")
+dt_replace = log_datetime.strftime("%d_%m_%Y")
 logging.basicConfig(filename=f'{dt_replace}.log', level=logging.INFO,
                     format='%(asctime)s - %(levelname)s - %(message)s')
 
@@ -19,20 +19,17 @@ def detect_screens(screens) -> list:
     for monitor_number, monitors in enumerate(screens.monitors[1:], start=1):
         screen.append(monitors)
     # print(screen) format like this : [{'left': 0, 'top': 0, 'width': 1280, 'height': 720}]
-    if screen:
-        logging.info(f'image captured: {screen}')
-    else:
-        logging.error(f'image captured: {screen}')
     return screen
 
 
 async def send_images(websocket):
 
-    print('dirs: ', websocket.extra_headers)
+    # print('dirs: ', websocket.extra_headers)
 
     with mss.mss() as sct:
         # Detect screens
         detect_screen = detect_screens(sct)
+        logging.info(f'dected screens {detect_screen}')
         try:
             while websocket.is_client:  # if client then response is true
                 for scn in detect_screen:
@@ -66,7 +63,6 @@ async def main():
     extra_header_data = tools.extra_header_data()
     async with websockets.connect(url, ping_interval=None, ping_timeout=50, extra_headers=extra_header_data) as websocket:
         logging.info(f'Client connected to {url}')
-        print(f"Connected to {url}")
         await send_images(websocket)
 
 
