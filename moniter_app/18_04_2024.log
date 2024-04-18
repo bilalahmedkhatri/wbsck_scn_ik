@@ -1,0 +1,38 @@
+2024-04-18 06:28:55,170 - INFO - Client connected to ws://localhost:8006/ws/c4FcqqZC7o47W3RdcTVrj4f-2O8pf89MzUcu1C9o3nc
+2024-04-18 06:28:55,236 - INFO - dected screens [{'left': 0, 'top': 0, 'width': 1280, 'height': 720}]
+2024-04-18 06:29:29,063 - INFO - Client connected to ws://localhost:8006/ws/FmPBF84eeXuIeBlZ1HbJByoTOhdMqnwrDGdDO47FHag
+2024-04-18 06:29:29,064 - INFO - extra header detail {'x_user_name': 'bilal', 'x_os': 'Linux', 'x_system_started_time': (1713414289.0, '18/04/2024, 06:24:49')}
+2024-04-18 06:29:29,091 - INFO - dected screens [{'left': 0, 'top': 0, 'width': 1280, 'height': 720}]
+2024-04-18 06:32:43,925 - INFO - Client connected to ws://localhost:8006/ws/EPK3dQmP8DQMJVEFVUjq6STHGk2cppEEbBsGz0bsaow
+2024-04-18 06:32:43,925 - INFO - extra header detail {'x_user_name': 'bilal', 'x_os': 'Linux', 'x_system_started_time': (1713414289.0, '18/04/2024, 06:24:49')}
+2024-04-18 06:32:43,949 - INFO - dected screens [{'left': 0, 'top': 0, 'width': 1280, 'height': 720}]
+2024-04-18 06:32:44,958 - INFO - Data sent to server
+2024-04-18 06:32:45,971 - INFO - Data sent to server
+2024-04-18 06:32:47,013 - INFO - Data sent to server
+2024-04-18 06:32:48,202 - INFO - Data sent to server
+2024-04-18 06:32:49,221 - INFO - Data sent to server
+2024-04-18 06:32:50,243 - INFO - Data sent to server
+2024-04-18 06:32:51,243 - INFO - Data sent to server
+2024-04-18 06:32:52,238 - INFO - Data sent to server
+2024-04-18 06:32:53,252 - INFO - Data sent to server
+2024-04-18 06:32:54,249 - INFO - Data sent to server
+2024-04-18 06:32:55,283 - INFO - Data sent to server
+2024-04-18 06:32:56,304 - INFO - Data sent to server
+2024-04-18 06:32:57,298 - INFO - Data sent to server
+2024-04-18 06:32:58,284 - INFO - Data sent to server
+2024-04-18 06:32:59,617 - INFO - Data sent to server
+2024-04-18 06:33:00,605 - INFO - Data sent to server
+2024-04-18 06:33:01,597 - INFO - Data sent to server
+2024-04-18 06:33:02,618 - INFO - Data sent to server
+2024-04-18 06:33:03,621 - INFO - Data sent to server
+2024-04-18 06:33:04,640 - INFO - Data sent to server
+2024-04-18 06:33:05,622 - INFO - Data sent to server
+2024-04-18 06:33:06,593 - INFO - Data sent to server
+2024-04-18 06:33:07,575 - INFO - Data sent to server
+2024-04-18 06:33:08,576 - INFO - Data sent to server
+2024-04-18 06:33:09,563 - INFO - Data sent to server
+2024-04-18 06:33:10,552 - INFO - Data sent to server
+2024-04-18 06:39:54,914 - INFO - Client connected to ws://localhost:8006/ws/DqvYpo2KKb6yfy8hnrA0VPOIYXOS0t13cnJjJloscY8
+2024-04-18 06:39:54,914 - INFO - extra header detail {'x_user_name': 'bilal', 'x_os': 'Linux', 'x_system_started_time': (1713414289.0, '18/04/2024, 06:24:49')}
+2024-04-18 06:39:54,943 - INFO - dected screens [{'left': 0, 'top': 0, 'width': 1280, 'height': 720}]
+2024-04-18 06:39:54,943 - INFO - Data sent to server

@@ -3,7 +3,7 @@ import websockets
 import mss
 import json
 import lzma
-from ws_tools import ClientMonitorTools
+from moniter_app.cl_tools import ClientMonitorTools
 import logging
 import datetime
 
@@ -22,7 +22,7 @@ def detect_screens(screens) -> list:
     return screen
 
 
-async def send_images(websocket):
+async def send_images(websocket, tools):
 
     # print('dirs: ', websocket.extra_headers)
 
@@ -31,6 +31,7 @@ async def send_images(websocket):
         detect_screen = detect_screens(sct)
         logging.info(f'dected screens {detect_screen}')
         try:
+            logging.info(f'Data sent to server')
             while websocket.is_client:  # if client then response is true
                 for scn in detect_screen:
                     # manage length of screens (remaining task)
@@ -53,6 +54,8 @@ async def send_images(websocket):
                     await asyncio.sleep(0.7)
 
         except websockets.exceptions.ConnectionClosed as e:
+            logging.info(
+                f"Client disconnected: {websocket.remote_address}, {e}")
             print("WebSocket connection closed.", e)
 
 
@@ -63,7 +66,8 @@ async def main():
     extra_header_data = tools.extra_header_data()
     async with websockets.connect(url, ping_interval=None, ping_timeout=50, extra_headers=extra_header_data) as websocket:
         logging.info(f'Client connected to {url}')
-        await send_images(websocket)
+        logging.info(f'extra header detail {websocket.extra_headers}')
+        await send_images(websocket, tools)
 
 
 if __name__ == "__main__":
