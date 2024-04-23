@@ -1,37 +1,10 @@
+from open_port import find_process_by_port, close_port
+from ser_tools import ServerMonitorTools
 import asyncio
 import websockets
-from open_port import find_process_by_port, close_port
-from .ser_tools import ServerMonitorTools
-
 
 PORT_NUMBER = 8006
 USERS_CONNECTED = set()
-
-
-# class ServerMonitorTools:
-
-#     def __init__(self, *args, **kwargs):
-#         self.frames = []
-#         self.websocket = kwargs["websocket"]
-#         self.fourcc = cv2.VideoWriter_fourcc(*'XVID')  # Video codec
-
-#     async def get_data_from_websocket(self) -> list:
-#         data = await self.websocket.recv()
-#         data_dict = loads(data)
-#         compressed_raw_image = data_dict['image'].encode(
-#             "latin-1")  # decoded string in latin-1
-#         decompress_image = decompress(
-#             compressed_raw_image)  # comporessed image frame
-#         return [decompress_image, data_dict['status'], data_dict['size']]
-
-#     async def build_video(self):
-#         image_bytes, image_status, image_size = await self.get_data_from_websocket()
-#         out = cv2.VideoWriter('video.avi', self.fourcc,
-#                               15.0, (image_size[0], image_size[1]))
-
-#         image_array = np.frombuffer(image_bytes, dtype=np.uint8)
-#         to_image = cv2.imdecode(image_array, cv2.IMREAD_UNCHANGED)
-#         print('types', image_array.size, image_size, type(to_image))
 
 
 def check_port(port):
@@ -43,20 +16,25 @@ def check_port(port):
 
 
 async def server(websocket, path):
-    v = websocket.data_received
-
-    print(v)
+    print(path)
     # "ws" for websocket connection from url path
-    monitor_tools = ServerMonitorTools(websocket=websocket)
+    monitor_tools = ServerMonitorTools(websocket)
     client_os_user_name = websocket.path
-    # print(client_os_user_name, websocket.extra_headers)
-    USERS_CONNECTED.add((websocket.path, websocket.origins))
+    USERS_CONNECTED.add((websocket.path))
+    print('clients', USERS_CONNECTED)
     try:
-        while True:
+        while websocket.data_received:
+            if not websocket.data_received:
+                break
 
             for client in USERS_CONNECTED:
-                if client != path:
-                    await websocket.send(client_os_user_name)
+                # receivng from user screens an sening back them to user
+                if path in client:
+                    data = monitor_tools.get_data_from_websocket()
+
+                    await websocket.send(data)
+                # elif
+            await asyncio.sleep(0.7)
 
     except websockets.exceptions.ConnectionClosed as e:
         print(f"Client disconnected: {websocket.remote_address}, {e}")
@@ -69,9 +47,8 @@ if __name__ == "__main__":
     port = PORT_NUMBER
     check_port(port)
     start_server = websockets.serve(
-        server, '', port, ping_interval=None, max_size=1000000)
-    print(
-        f"WebSocket server is running on localhost {port}")
+        server, 'localhost', port, ping_interval=None, max_size=1000000)
+    print(f"WebSocket server started")
     asyncio.get_event_loop().run_until_complete(start_server)
     asyncio.get_event_loop().run_forever()
 

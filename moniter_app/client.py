@@ -1,9 +1,9 @@
+from cl_tools import ClientMonitorTools
 import asyncio
 import websockets
 import mss
 import json
 import lzma
-from moniter_app.cl_tools import ClientMonitorTools
 import logging
 import datetime
 
@@ -51,7 +51,7 @@ async def send_images(websocket, tools):
                     await websocket.send(data)
                     recv_data = await websocket.recv()
                     print(f"receve :", recv_data)
-                    await asyncio.sleep(0.7)
+                await asyncio.sleep(0.7)
 
         except websockets.exceptions.ConnectionClosed as e:
             logging.info(

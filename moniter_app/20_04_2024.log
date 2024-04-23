@@ -1,0 +1,80 @@
+2024-04-20 00:04:41,858 - INFO - Client connected to ws://localhost:8006/ws/GYOnSdMBmo60A4kHty7khggauWiFeN3c05Tk8-qI2Zo
+2024-04-20 00:04:41,858 - INFO - extra header detail {'x_user_name': 'bilal', 'x_os': 'Linux', 'x_system_started_time': (1713459912.0, '18/04/2024, 19:05:12')}
+2024-04-20 00:04:41,882 - INFO - dected screens [{'left': 0, 'top': 0, 'width': 1280, 'height': 720}]
+2024-04-20 00:04:41,882 - INFO - Data sent to server
+2024-04-20 00:04:58,199 - INFO - Client disconnected: ('::1', 8006, 0, 0), no close frame received or sent
+2024-04-20 06:38:17,177 - INFO - Client connected to ws://localhost:8006/ws/HXO_7L1FGS6qwi3rGvJ-xYBL9pXFEMyQM3s9q3XQtsU
+2024-04-20 06:38:17,178 - INFO - extra header detail {'x_user_name': 'bilal', 'x_os': 'Linux', 'x_system_started_time': (1713459912.0, '18/04/2024, 19:05:12')}
+2024-04-20 06:38:17,204 - INFO - dected screens [{'left': 0, 'top': 0, 'width': 1280, 'height': 720}]
+2024-04-20 06:38:17,204 - INFO - Data sent to server
+2024-04-20 06:38:17,529 - INFO - Client disconnected: ('::1', 8006, 0, 0), received 1011 (internal error); then sent 1011 (internal error)
+2024-04-20 06:41:43,563 - INFO - Client connected to ws://localhost:8006/ws/zZ0gFomSkzQnELdz6NhKKdVUbOktA1nL94ALw3bYtnE
+2024-04-20 06:41:43,563 - INFO - extra header detail {'x_user_name': 'bilal', 'x_os': 'Linux', 'x_system_started_time': (1713459912.0, '18/04/2024, 19:05:12')}
+2024-04-20 06:41:43,582 - INFO - dected screens [{'left': 0, 'top': 0, 'width': 1280, 'height': 720}]
+2024-04-20 06:41:43,582 - INFO - Data sent to server
+2024-04-20 06:41:43,900 - INFO - Client disconnected: ('::1', 8006, 0, 0), received 1011 (internal error); then sent 1011 (internal error)
+2024-04-20 06:44:26,210 - INFO - Client connected to ws://localhost:8006/ws/tOuXDzmduwK_2fJGDcwZFTzkBxM5aiY6HFvjYwIxUS8
+2024-04-20 06:44:26,211 - INFO - extra header detail {'x_user_name': 'bilal', 'x_os': 'Linux', 'x_system_started_time': (1713459912.0, '18/04/2024, 19:05:12')}
+2024-04-20 06:44:26,231 - INFO - dected screens [{'left': 0, 'top': 0, 'width': 1280, 'height': 720}]
+2024-04-20 06:44:26,232 - INFO - Data sent to server
+2024-04-20 06:44:26,534 - INFO - Client disconnected: ('::1', 8006, 0, 0), received 1011 (internal error); then sent 1011 (internal error)
+2024-04-20 06:45:20,958 - INFO - Client connected to ws://localhost:8006/ws/SehtTZDwl_oiiYLZWo3kjIm021ig9bPhIKkjhoIlFu4
+2024-04-20 06:45:20,958 - INFO - extra header detail {'x_user_name': 'bilal', 'x_os': 'Linux', 'x_system_started_time': (1713459912.0, '18/04/2024, 19:05:12')}
+2024-04-20 06:45:20,983 - INFO - dected screens [{'left': 0, 'top': 0, 'width': 1280, 'height': 720}]
+2024-04-20 06:45:20,983 - INFO - Data sent to server
+2024-04-20 06:45:21,282 - INFO - Client disconnected: ('::1', 8006, 0, 0), received 1011 (internal error); then sent 1011 (internal error)
+2024-04-20 06:46:06,981 - INFO - Client connected to ws://localhost:8006/ws/jRiIFi_5v5-7sM3ZEkh9Y5o0XmrrQqCvXCio4wOy3Ho
+2024-04-20 06:46:06,981 - INFO - extra header detail {'x_user_name': 'bilal', 'x_os': 'Linux', 'x_system_started_time': (1713459912.0, '18/04/2024, 19:05:12')}
+2024-04-20 06:46:07,007 - INFO - dected screens [{'left': 0, 'top': 0, 'width': 1280, 'height': 720}]
+2024-04-20 06:46:07,007 - INFO - Data sent to server
+2024-04-20 06:46:07,304 - INFO - Client disconnected: ('::1', 8006, 0, 0), received 1011 (internal error); then sent 1011 (internal error)
+2024-04-20 06:47:47,482 - INFO - Client connected to ws://localhost:8006/ws/ap1DSwdj1JyFf0nVj5nSm_FkYQqMT9GyQZxcg21j9w8
+2024-04-20 06:47:47,483 - INFO - extra header detail {'x_user_name': 'bilal', 'x_os': 'Linux', 'x_system_started_time': (1713459912.0, '18/04/2024, 19:05:12')}
+2024-04-20 06:47:47,505 - INFO - dected screens [{'left': 0, 'top': 0, 'width': 1280, 'height': 720}]
+2024-04-20 06:47:47,505 - INFO - Data sent to server
+2024-04-20 06:47:47,802 - INFO - Client disconnected: ('::1', 8006, 0, 0), received 1011 (internal error); then sent 1011 (internal error)
+2024-04-20 06:50:16,061 - INFO - Client connected to ws://localhost:8006/ws/1pwGi_jIpv6t1qQBy6h4UzHQyUS4_vTqA6NpNXkqf6s
+2024-04-20 06:50:16,061 - INFO - extra header detail {'x_user_name': 'bilal', 'x_os': 'Linux', 'x_system_started_time': (1713459912.0, '18/04/2024, 19:05:12')}
+2024-04-20 06:50:16,083 - INFO - dected screens [{'left': 0, 'top': 0, 'width': 1280, 'height': 720}]
+2024-04-20 06:50:16,083 - INFO - Data sent to server
+2024-04-20 06:50:16,379 - INFO - Client disconnected: ('::1', 8006, 0, 0), received 1011 (internal error); then sent 1011 (internal error)
+2024-04-20 06:55:44,722 - INFO - Client connected to ws://localhost:8006/ws/li2E4EBl_9emmjH3uVKj1CO-UGnKnPcJcthHx2VT-3Y
+2024-04-20 06:55:44,722 - INFO - extra header detail {'x_user_name': 'bilal', 'x_os': 'Linux', 'x_system_started_time': (1713459912.0, '18/04/2024, 19:05:12')}
+2024-04-20 06:55:44,739 - INFO - dected screens [{'left': 0, 'top': 0, 'width': 1280, 'height': 720}]
+2024-04-20 06:55:44,739 - INFO - Data sent to server
+2024-04-20 06:55:45,032 - INFO - Client disconnected: ('::1', 8006, 0, 0), received 1011 (internal error); then sent 1011 (internal error)
+2024-04-20 06:56:29,566 - INFO - Client connected to ws://localhost:8006/ws/rW6f3GgsSQ5Kyfz9jahASVi8caM876MTugir19b06zc
+2024-04-20 06:56:29,566 - INFO - extra header detail {'x_user_name': 'bilal', 'x_os': 'Linux', 'x_system_started_time': (1713459912.0, '18/04/2024, 19:05:12')}
+2024-04-20 06:56:29,584 - INFO - dected screens [{'left': 0, 'top': 0, 'width': 1280, 'height': 720}]
+2024-04-20 06:56:29,585 - INFO - Data sent to server
+2024-04-20 06:56:39,382 - INFO - Client disconnected: ('::1', 8006, 0, 0), no close frame received or sent
+2024-04-20 06:58:09,662 - INFO - Client connected to ws://localhost:8006/ws/4Lc_FaZIPel31_8gKj0YXAltWyjVkc9983N63R1-kNY
+2024-04-20 06:58:09,662 - INFO - extra header detail {'x_user_name': 'bilal', 'x_os': 'Linux', 'x_system_started_time': (1713459912.0, '18/04/2024, 19:05:12')}
+2024-04-20 06:58:09,678 - INFO - dected screens [{'left': 0, 'top': 0, 'width': 1280, 'height': 720}]
+2024-04-20 06:58:09,678 - INFO - Data sent to server
+2024-04-20 06:58:09,978 - INFO - Client disconnected: ('::1', 8006, 0, 0), received 1011 (internal error); then sent 1011 (internal error)
+2024-04-20 06:59:14,276 - INFO - Client connected to ws://localhost:8006/ws/ffEEVGYL_eoayyqR0XEJPgumZeCOgeBeY1UqU00RuM8
+2024-04-20 06:59:14,276 - INFO - extra header detail {'x_user_name': 'bilal', 'x_os': 'Linux', 'x_system_started_time': (1713459912.0, '18/04/2024, 19:05:12')}
+2024-04-20 06:59:14,301 - INFO - dected screens [{'left': 0, 'top': 0, 'width': 1280, 'height': 720}]
+2024-04-20 06:59:14,301 - INFO - Data sent to server
+2024-04-20 06:59:14,614 - INFO - Client disconnected: ('::1', 8006, 0, 0), received 1011 (internal error); then sent 1011 (internal error)
+2024-04-20 07:00:34,530 - INFO - Client connected to ws://localhost:8006/ws/myHFnuTzhGO_OjkWj1MF4EXzYrIM0W_r5YBS97ZTlhU
+2024-04-20 07:00:34,530 - INFO - extra header detail {'x_user_name': 'bilal', 'x_os': 'Linux', 'x_system_started_time': (1713459912.0, '18/04/2024, 19:05:12')}
+2024-04-20 07:00:34,555 - INFO - dected screens [{'left': 0, 'top': 0, 'width': 1280, 'height': 720}]
+2024-04-20 07:00:34,555 - INFO - Data sent to server
+2024-04-20 07:00:46,054 - INFO - Client disconnected: ('::1', 8006, 0, 0), no close frame received or sent
+2024-04-20 07:01:43,880 - INFO - Client connected to ws://localhost:8006/ws/xJEDN4cPAgTGZxJj2tuJhEKZyMe8ClEgNxki_HZVRk0
+2024-04-20 07:01:43,880 - INFO - extra header detail {'x_user_name': 'bilal', 'x_os': 'Linux', 'x_system_started_time': (1713459912.0, '18/04/2024, 19:05:12')}
+2024-04-20 07:01:43,899 - INFO - dected screens [{'left': 0, 'top': 0, 'width': 1280, 'height': 720}]
+2024-04-20 07:01:43,899 - INFO - Data sent to server
+2024-04-20 07:01:49,083 - INFO - Client disconnected: ('::1', 8006, 0, 0), no close frame received or sent
+2024-04-20 07:02:47,796 - INFO - Client connected to ws://localhost:8006/ws/SzDaVR1UbZeoJSJcfDaOEaQkgP2Pq-bq64yupgmJVd0
+2024-04-20 07:02:47,796 - INFO - extra header detail {'x_user_name': 'bilal', 'x_os': 'Linux', 'x_system_started_time': (1713459912.0, '18/04/2024, 19:05:12')}
+2024-04-20 07:02:47,820 - INFO - dected screens [{'left': 0, 'top': 0, 'width': 1280, 'height': 720}]
+2024-04-20 07:02:47,820 - INFO - Data sent to server
+2024-04-20 07:02:52,615 - INFO - Client disconnected: ('::1', 8006, 0, 0), no close frame received or sent
+2024-04-20 07:03:18,271 - INFO - Client connected to ws://localhost:8006/ws/lpnp1g1N558AmNnvlCN0UULeV1lOTIEF4ivST2kEfng
+2024-04-20 07:03:18,271 - INFO - extra header detail {'x_user_name': 'bilal', 'x_os': 'Linux', 'x_system_started_time': (1713459912.0, '18/04/2024, 19:05:12')}
+2024-04-20 07:03:18,292 - INFO - dected screens [{'left': 0, 'top': 0, 'width': 1280, 'height': 720}]
+2024-04-20 07:03:18,292 - INFO - Data sent to server
+2024-04-20 07:03:21,981 - INFO - Client disconnected: ('::1', 8006, 0, 0), no close frame received or sent
