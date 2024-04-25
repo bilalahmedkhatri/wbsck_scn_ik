@@ -62,7 +62,7 @@ async def send_images(websocket, tools):
 async def main():
     tools = ClientMonitorTools()
     SECURE_TOKEN = tools.secure_token()
-    url = f"ws://localhost:8006/ws/{SECURE_TOKEN}"
+    url = f"ws://localhost:8006/ws/{SECURE_TOKEN}/client"
     extra_header_data = tools.extra_header_data()
     async with websockets.connect(url, ping_interval=None, ping_timeout=50, extra_headers=extra_header_data) as websocket:
         logging.info(f'Client connected to {url}')

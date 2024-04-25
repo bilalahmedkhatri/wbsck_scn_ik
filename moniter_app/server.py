@@ -1,10 +1,12 @@
 from open_port import find_process_by_port, close_port
 from ser_tools import ServerMonitorTools
+from json import loads, dumps
 import asyncio
 import websockets
 
+
 PORT_NUMBER = 8006
-USERS_CONNECTED = set()
+USERS_CONNECTED = list()
 
 
 def check_port(port):
@@ -16,31 +18,27 @@ def check_port(port):
 
 
 async def server(websocket, path):
-    print(path)
     # "ws" for websocket connection from url path
-    monitor_tools = ServerMonitorTools(websocket)
-    client_os_user_name = websocket.path
-    USERS_CONNECTED.add((websocket.path))
+    monitor_tools = ServerMonitorTools(websocket, path)
+    USERS_CONNECTED.append(websocket.path)
     print('clients', USERS_CONNECTED)
     try:
         while websocket.data_received:
             if not websocket.data_received:
+                print('no data received')
                 break
-
             for client in USERS_CONNECTED:
                 # receivng from user screens an sening back them to user
                 if path in client:
-                    data = monitor_tools.get_data_from_websocket()
-
-                    await websocket.send(data)
-                # elif
-            await asyncio.sleep(0.7)
+                    await monitor_tools.image_status()
+                    print('users :', USERS_CONNECTED)
+            await asyncio.sleep(0.1)
 
     except websockets.exceptions.ConnectionClosed as e:
-        print(f"Client disconnected: {websocket.remote_address}, {e}")
+        print(f"Client disconnected: {websocket.remote_address}")
 
-    finally:
-        USERS_CONNECTED.remove(websocket)
+    # finally:
+    #     USERS_CONNECTED.remove(websocket)
 
 # Start the WebSocket server on localhost, port 8080
 if __name__ == "__main__":
