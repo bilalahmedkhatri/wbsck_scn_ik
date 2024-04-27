@@ -37,23 +37,22 @@ class ServerMonitorTools:
         self.bytes_start = decompress_image
         return {'x-web-img-byte': decompress_image, 'x-web-status': data_dict['status'], 'x-web-img-size': data_dict['size']}
 
-    def client(self, data):
-        return dumps({'status': data[1], 'size': data[2]})
+    def client(self, data, path):
+        return dumps({'status': data['x-web-status'], 'size': data['x-web-img-size'], 'path': path})
 
-    def web(self, data):
-        return dumps({'status': data[1], 'size': data[2]})
+    def web(self, data, path):
+        return dumps({'status': data['x-web-status'], 'size': data['x-web-img-size'], 'path': path})
 
-    async def image_status(self) -> str:
-        data = await self.websocket.recv()
+    async def image_status(self):
+        data = await self.get_data_from_websocket()
         path = self.websocket.path
-        print(f"path: {path}")
-        # load = loads(data)
+
+        print(f"path: {type(data['x-web-img-byte'])}, path, : {path}")
         if "client" in path:
-            x = self.client(data)
-            await self.websocket.send(x)
+            self.client(data, path)
+
         if "web" in path:
-            x = self.web(data)
-            await self.websocket.send(x)
+            self.web(data, path)
 
         # yaha se databejna hai
 

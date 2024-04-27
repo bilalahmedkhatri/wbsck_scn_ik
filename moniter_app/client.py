@@ -10,7 +10,7 @@ import datetime
 
 log_datetime = datetime.datetime.now()
 dt_replace = log_datetime.strftime("%d_%m_%Y")
-logging.basicConfig(filename=f'{dt_replace}.log', level=logging.INFO,
+logging.basicConfig(filename=f'logs/{dt_replace}.log', level=logging.INFO,
                     format='%(asctime)s - %(levelname)s - %(message)s')
 
 
@@ -32,7 +32,7 @@ async def send_images(websocket, tools):
         logging.info(f'dected screens {detect_screen}')
         try:
             logging.info(f'Data sent to server')
-            while websocket.is_client:  # if client then response is true
+            while True:  # if client then response is true
                 for scn in detect_screen:
                     # manage length of screens (remaining task)
                     # Capture the screen part
@@ -49,8 +49,8 @@ async def send_images(websocket, tools):
                         'size': screenshot.size,
                     })
                     await websocket.send(data)
-                    recv_data = await websocket.recv()
-                    print(f"receve :", recv_data)
+                    # recv_data = await websocket.recv()
+                    # print(f"receve :", recv_data)
                 await asyncio.sleep(0.7)
 
         except websockets.exceptions.ConnectionClosed as e:
@@ -62,7 +62,7 @@ async def send_images(websocket, tools):
 async def main():
     tools = ClientMonitorTools()
     SECURE_TOKEN = tools.secure_token()
-    url = f"ws://localhost:8006/ws/{SECURE_TOKEN}/client"
+    url = f"ws://localhost:8005/ws/{SECURE_TOKEN}/client"
     extra_header_data = tools.extra_header_data()
     async with websockets.connect(url, ping_interval=None, ping_timeout=50, extra_headers=extra_header_data) as websocket:
         logging.info(f'Client connected to {url}')

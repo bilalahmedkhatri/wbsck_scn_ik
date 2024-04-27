@@ -13,9 +13,12 @@ def find_process_by_port(port):
     for process in process_iter():
         try:
             for conn in process.connections():
+                # print('process', conn)
                 if conn.laddr.port == port:
-                    return process
+                    result = close_port(conn.laddr.port)
+                    return result
         except (NoSuchProcess, AccessDenied):
+
             pass  # Ignore errors
 
 # port connection not working.

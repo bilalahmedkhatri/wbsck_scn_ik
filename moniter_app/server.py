@@ -1,20 +1,12 @@
 from open_port import find_process_by_port, close_port
+from psutil import NoSuchProcess, AccessDenied
 from ser_tools import ServerMonitorTools
-from json import loads, dumps
 import asyncio
 import websockets
 
 
-PORT_NUMBER = 8006
+PORT_NUMBER = 8005
 USERS_CONNECTED = list()
-
-
-def check_port(port):
-    process_port = find_process_by_port(port)
-    if process_port:
-        close_port(port)
-        process_port.terminate()
-        print("port closed :", process_port)
 
 
 async def server(websocket, path):
@@ -24,14 +16,12 @@ async def server(websocket, path):
     print('clients', USERS_CONNECTED)
     try:
         while websocket.data_received:
-            if not websocket.data_received:
-                print('no data received')
-                break
             for client in USERS_CONNECTED:
                 # receivng from user screens an sening back them to user
                 if path in client:
-                    await monitor_tools.image_status()
-                    print('users :', USERS_CONNECTED)
+                    # await monitor_tools.image_status()
+                    x = await websocket.recv()
+                    print('users :', x,  USERS_CONNECTED)
             await asyncio.sleep(0.1)
 
     except websockets.exceptions.ConnectionClosed as e:
@@ -43,7 +33,6 @@ async def server(websocket, path):
 # Start the WebSocket server on localhost, port 8080
 if __name__ == "__main__":
     port = PORT_NUMBER
-    check_port(port)
     start_server = websockets.serve(
         server, 'localhost', port, ping_interval=None, max_size=1000000)
     print(f"WebSocket server started")
