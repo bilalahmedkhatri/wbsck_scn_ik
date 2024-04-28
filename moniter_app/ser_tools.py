@@ -28,6 +28,9 @@ class ServerMonitorTools:
         return f"./video/{user_name}_{os}_{date}_{random_key}.avi"
 
     async def get_data_from_websocket(self) -> dict:
+        path = self.websocket.path
+        if not 'client' in path:
+            return False
         data = await self.websocket.recv()
         data_dict = loads(data)
         compressed_raw_image = data_dict['image'].encode(
@@ -37,22 +40,25 @@ class ServerMonitorTools:
         self.bytes_start = decompress_image
         return {'x-web-img-byte': decompress_image, 'x-web-status': data_dict['status'], 'x-web-img-size': data_dict['size']}
 
-    def client(self, data, path):
-        return dumps({'status': data['x-web-status'], 'size': data['x-web-img-size'], 'path': path})
+    def client(self, data):
+        return dumps({'status': data['x-web-status'], 'size': data['x-web-img-size']})
+        # return dumps({'status': data['x-web-status'], 'size': data['x-web-img-size'], 'path': path})
 
-    def web(self, data, path):
-        return dumps({'status': data['x-web-status'], 'size': data['x-web-img-size'], 'path': path})
+    def web(self):
+        return self.client()
 
     async def image_status(self):
         data = await self.get_data_from_websocket()
         path = self.websocket.path
 
-        print(f"path: {type(data['x-web-img-byte'])}, path, : {path}")
-        if "client" in path:
-            self.client(data, path)
+        # if "client" in path:
+        #     self.client(data, path)
+        #     print(
+        #         f"client path: {type(data['x-web-img-byte'])}, path, : {path}")
 
-        if "web" in path:
-            self.web(data, path)
+        # if "web" in path:
+        #     self.web(data, path)
+        #     print(f"web path: {type(data['x-web-img-byte'])}, path, : {path}")
 
         # yaha se databejna hai
 

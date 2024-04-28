@@ -1,5 +1,3 @@
-from open_port import find_process_by_port, close_port
-from psutil import NoSuchProcess, AccessDenied
 from ser_tools import ServerMonitorTools
 import asyncio
 import websockets
@@ -16,19 +14,25 @@ async def server(websocket, path):
     print('clients', USERS_CONNECTED)
     try:
         while websocket.data_received:
+            client_data = await monitor_tools.get_data_from_websocket()
+            print(type(client_data))
             for client in USERS_CONNECTED:
                 # receivng from user screens an sening back them to user
-                if path in client:
-                    # await monitor_tools.image_status()
-                    x = await websocket.recv()
-                    print('users :', x,  USERS_CONNECTED)
+                # if path in client:
+                #     await monitor_tools.image_status()
+                if "client" in client:
+                    value = monitor_tools.client(client_data)
+                if "web" in client:
+                    await websocket.send(value)
+                    # print(value)
+            # print('users :',   USERS_CONNECTED)
             await asyncio.sleep(0.1)
 
     except websockets.exceptions.ConnectionClosed as e:
         print(f"Client disconnected: {websocket.remote_address}")
 
-    # finally:
-    #     USERS_CONNECTED.remove(websocket)
+    finally:
+        USERS_CONNECTED.remove(websocket.path)
 
 # Start the WebSocket server on localhost, port 8080
 if __name__ == "__main__":
