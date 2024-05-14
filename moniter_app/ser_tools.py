@@ -39,9 +39,9 @@ class ServerMonitorTools:
         return {'x-web-img-byte': decompress_image, 'x-web-status': data_dict['status'], 'x-web-img-size': data_dict['size']}
 
     def video(self, dt_bytes):
-        byte = dt_bytes['x-web-img-byte']
+        img_bytes = dt_bytes['x-web-img-byte']
         # print("bytes in video", type(byte))
-        return byte
+        return img_bytes
 
     def client(self, data):
         return dumps({'status': data['x-web-status'], 'size': data['x-web-img-size']})

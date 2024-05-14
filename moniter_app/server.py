@@ -1,17 +1,16 @@
 from ser_tools import ServerMonitorTools
-from .threads import build_video_from_bytes_async
+from record_video import build_video_from_bytes_async
 import asyncio
 import websockets
 import json
-import cv2
-import numpy as np
 
 PORT_NUMBER = 8005
 USERS_CONNECTED = list()
 
 
-def create_video_from_bytes():
-    asyncio.create_task()
+def create_video_from_bytes(img_bytes):
+    asyncio.create_task(
+        build_video_from_bytes_async(img_bytes, "video.avi"))
 
 
 async def server(websocket, path):
@@ -34,9 +33,7 @@ async def server(websocket, path):
                     # decod = np.frombuffer(img_bytes, dtype=np.uint8)
                     # Your logic to determine height, width, and channels
                     # height, width, channels = decod.reshape
-
-                    build_video_from_bytes_async(img_bytes)
-
+                    create_video_from_bytes(img_bytes)
                     # fourcc = cv2.VideoWriter_fourcc(*"XVID")
                     # write = cv2.VideoWriter("vid.avi", fourcc, 15, (1280, 720))
 

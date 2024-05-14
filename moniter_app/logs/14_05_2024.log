@@ -1,0 +1,10 @@
+2024-05-14 07:09:20,358 - INFO - Client connected to ws://localhost:8005/ws/cwRr7Y6TODyf5wIs1eVfbN3SYeSBr_AxzFB_4hyPAVc/client
+2024-05-14 07:09:20,358 - INFO - extra header detail {'x-user-name': 'bilal', 'x-os': 'Linux', 'x-system-started-time': (1714889271.0, '05/05/2024, 08:07:51')}
+2024-05-14 07:09:20,388 - INFO - dected screens [{'left': 0, 'top': 0, 'width': 1280, 'height': 720}]
+2024-05-14 07:09:20,388 - INFO - Data sent to server
+2024-05-14 07:09:21,635 - INFO - Client disconnected: ('::1', 8005, 0, 0), received 1011 (internal error); then sent 1011 (internal error)
+2024-05-14 07:09:44,994 - INFO - Client connected to ws://localhost:8005/ws/t0Uru1idiacYr79RgZV3rdt_g6hy7DCHGUA1sHa_x1I/client
+2024-05-14 07:09:44,994 - INFO - extra header detail {'x-user-name': 'bilal', 'x-os': 'Linux', 'x-system-started-time': (1714889271.0, '05/05/2024, 08:07:51')}
+2024-05-14 07:09:45,010 - INFO - dected screens [{'left': 0, 'top': 0, 'width': 1280, 'height': 720}]
+2024-05-14 07:09:45,010 - INFO - Data sent to server
+2024-05-14 07:09:46,288 - INFO - Client disconnected: ('::1', 8005, 0, 0), received 1011 (internal error); then sent 1011 (internal error)

@@ -3,7 +3,7 @@ import numpy as np
 from threading import Thread
 
 
-def build_video_from_bytes_async(byte_data, output_filename="output.avi", fps=25):
+def build_video_from_bytes_async(byte_data, output_filename, fps=15):
     """
     Builds a video from byte data using OpenCV in an async-like manner with threads.
 
@@ -18,16 +18,16 @@ def build_video_from_bytes_async(byte_data, output_filename="output.avi", fps=25
             byte_data, dtype=np.uint8)  # Assuming uint8 format
 
         # Extract video properties (assuming known or derivable from byte data)
-        height, width, channels =  # Your logic to determine height, width, and channels
+        # height, width, channels =  # Your logic to determine height, width, and channels
 
         # Create video writer
         # Adjust fourcc code for desired format
         fourcc = cv2.VideoWriter_fourcc(*"XVID")
         video_writer = cv2.VideoWriter(
-            output_filename, fourcc, fps, (width, height))
+            output_filename, fourcc, fps, (1280, 720))
 
         # Write each decoded frame to the video
-        for frame in decoded_frames.reshape(-1, height, width, channels):
+        for frame in decoded_frames.reshape(-1, 720, 1280, 2):
             video_writer.write(frame)
 
         # Release resources
