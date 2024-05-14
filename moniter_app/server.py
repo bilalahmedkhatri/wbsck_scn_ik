@@ -1,10 +1,17 @@
 from ser_tools import ServerMonitorTools
+from .threads import build_video_from_bytes_async
 import asyncio
 import websockets
-
+import json
+import cv2
+import numpy as np
 
 PORT_NUMBER = 8005
 USERS_CONNECTED = list()
+
+
+def create_video_from_bytes():
+    asyncio.create_task()
 
 
 async def server(websocket, path):
@@ -14,18 +21,32 @@ async def server(websocket, path):
     print('clients', USERS_CONNECTED)
     try:
         while websocket.data_received:
-            client_data = await monitor_tools.get_data_from_websocket()
-            print(type(client_data))
             for client in USERS_CONNECTED:
                 # receivng from user screens an sening back them to user
                 # if path in client:
-                #     await monitor_tools.image_status()
+                _value = {}
                 if "client" in client:
+                    client_data = await monitor_tools.get_data_from_websocket()
                     value = monitor_tools.client(client_data)
+                    json_data = json.loads(value)
+
+                    img_bytes = monitor_tools.video(client_data)
+                    # decod = np.frombuffer(img_bytes, dtype=np.uint8)
+                    # Your logic to determine height, width, and channels
+                    # height, width, channels = decod.reshape
+
+                    build_video_from_bytes_async(img_bytes)
+
+                    # fourcc = cv2.VideoWriter_fourcc(*"XVID")
+                    # write = cv2.VideoWriter("vid.avi", fourcc, 15, (1280, 720))
+
+                    # for frame in decod.reshape(-1, 720, 1280, 2):
+                    #     write.write(frame)
+                    # write.release()
+                    for j in json_data:
+                        _value.update({j: json_data[j]})
                 if "web" in client:
                     await websocket.send(value)
-                    # print(value)
-            # print('users :',   USERS_CONNECTED)
             await asyncio.sleep(0.1)
 
     except websockets.exceptions.ConnectionClosed as e:

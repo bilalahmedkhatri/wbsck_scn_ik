@@ -29,7 +29,7 @@ def close_port(port):
     reference of this code
     https://unix.stackexchange.com/questions/238180/execute-shell-commands-in-python
     '''
-    cmd = ['kill', '-9', str(port)]
+    cmd = ['kill', '-9', f"($(lsof -t -i:{port}))"]
     proc = subprocess.Popen(
         cmd,
         stdout=subprocess.PIPE,

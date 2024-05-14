@@ -1,10 +1,8 @@
 import cv2
-# import threading
 # import numpy as np
 from json import loads, dumps
 from lzma import decompress
 # import subprocess
-# import pillow
 
 TEST = "TEST"
 
@@ -30,7 +28,7 @@ class ServerMonitorTools:
     async def get_data_from_websocket(self) -> dict:
         path = self.websocket.path
         if not 'client' in path:
-            return False
+            return 'not client False'
         data = await self.websocket.recv()
         data_dict = loads(data)
         compressed_raw_image = data_dict['image'].encode(
@@ -39,6 +37,11 @@ class ServerMonitorTools:
             compressed_raw_image)  # comporessed image frame
         self.bytes_start = decompress_image
         return {'x-web-img-byte': decompress_image, 'x-web-status': data_dict['status'], 'x-web-img-size': data_dict['size']}
+
+    def video(self, dt_bytes):
+        byte = dt_bytes['x-web-img-byte']
+        # print("bytes in video", type(byte))
+        return byte
 
     def client(self, data):
         return dumps({'status': data['x-web-status'], 'size': data['x-web-img-size']})

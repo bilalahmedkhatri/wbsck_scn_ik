@@ -1,0 +1,5 @@
+2024-05-09 11:04:21,286 - INFO - Client connected to ws://localhost:8005/ws/bQKZxh2_gOnCG0tiM-4cgcu3hBOhes_c6pdqrH9IyF4/client
+2024-05-09 11:04:21,286 - INFO - extra header detail {'x-user-name': 'bilal', 'x-os': 'Linux', 'x-system-started-time': (1714889276.0, '05/05/2024, 08:07:56')}
+2024-05-09 11:04:21,322 - INFO - dected screens [{'left': 0, 'top': 0, 'width': 1280, 'height': 720}]
+2024-05-09 11:04:21,322 - INFO - Data sent to server
+2024-05-09 11:04:30,648 - INFO - Client disconnected: ('::1', 8005, 0, 0), no close frame received or sent
